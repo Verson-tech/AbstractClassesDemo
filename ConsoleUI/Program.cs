@@ -30,23 +30,61 @@ namespace ConsoleUI
              * Provide the implementations for the abstract methods
              * Only in the Motorcycle class will you override the virtual drive method
             */
+        // Create a list of Vehicle called vehicles
+        var vehicles = new List<Vehicle>();
+        /*
+         * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
+         * - set them up as one of each derived class
+         * Set the properties with object initializer syntax
+         */
+        var car1 = new Car() { 
+            HasTrunk = true,
+            Year = "2000",
+            Make = "Honda",
+            Model = "Accord"
+        };
+        var motorcycle1 = new Motorcycle() { 
+            HasSideCart = true,
+            Year = "2010",
+            Make = "Kawasaki",
+            Model = "Ninja"
+        };
+        Vehicle vehicle1 = new Car() { 
+            Year = "2020",
+            Make = "Tesla",
+            Model = "XY"
+        };
+        Vehicle vehicle2 = new Motorcycle() {
+            Year = "2020",
+            Make = "Suzuki",
+            Model = "xf345"
+        };
 
-            // Create a list of Vehicle called vehicles
-
-            /*
-             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
-             * - set them up as one of each derived class
-             * Set the properties with object initializer syntax
-             */
 
             /*
              * Add the 4 vehicles to the list
              * Using a foreach loop iterate over each of the properties
              */
 
+            vehicles.Add(car1);
+            vehicles.Add(motorcycle1);
+            vehicles.Add(vehicle1);
+            vehicles.Add(vehicle2);     
+            
+            foreach(var v in vehicles)
+            {
+                Console.WriteLine($"{v.Year}");
+                Console.WriteLine($"{v.Make}");
+                Console.WriteLine($"{v.Model}");
+                Console.WriteLine();
+                v.DriveAbstract();
+                v.DriveVirtual();
+                Console.WriteLine();
+            }
+
             // Call each of the drive methods for one car and one motorcycle
 
-            #endregion            
+            #endregion
             Console.ReadLine();
         }
     }
